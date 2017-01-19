@@ -978,7 +978,7 @@ a.socialIcon:hover, .socialHoverClass {
 	margin:0 auto 0 auto;
 	-moz-border-radius:100%;
 	-webkit-border-radius:100%;
-	border-radius:100%;
+	border-radius:90%;
 	text-align:center;
 	width: 100px;
 	height: 100px;
