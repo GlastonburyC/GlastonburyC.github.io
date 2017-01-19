@@ -438,7 +438,7 @@ h1 a.navbar-brand {
 =========================== */
 
 section.featured {
-	padding: 50px 0 60px;
+	padding: 200px 0 60px;
 	background: #70B9B0;
 	color: #fdfdfd;
 }
@@ -452,7 +452,7 @@ section.featured h2.slogan {
  /* inner heading */
 section.featured.inner {
 	background: #eee;
-	padding: 150px 0 50px;
+	padding: 50px 0 50px;
 }
   
   
