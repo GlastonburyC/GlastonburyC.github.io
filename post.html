@@ -92,11 +92,12 @@
                     Genome-Wide Association Studies (GWAS) have been the bread and butter in the complex disease geneticists arsenal since the mid-2000s. The idea is beautifully simple, a common complex trait can be influenced by a number of common genetic variants each with relatively small effect sizes, all contributing additively (for the most part) to influence disease risk. GWAS in fact has been so successful (thosands of loci discovered for a whole host of traits), complex disease geneticists today are already faced with a burden of prioritising variants. Additional difficulties in prioritisation are also complicated by the nature of complex traits: 
 </p>
 <p>
-<ul>
+<ol>
     
     <li>The genetic architecture - GWAS variants are non-coding ‘enriched’. </li>
     <li>The LD-structure of the (European) human genome.</li>
     <li>Proximity. What gene/s matters?.</li>
+                    </ol>
     </p>
                     <p>
 Many of these challenges have been, or are being overcome. The non-coding genome continues to be extensively studied through research-efforts such as GTEx, ENCODE and Roadmap, building extensive regulatory genomic datasets to relate variants to expression (eQTLs), protein levels (pQTLs), expression dynamics (Alater native splicing, Nonsense Mediated Decay) and the regulatory chromatin landscape. Fine-mapping and trans-ethnic GWAS have reduced the burden of LD and many probabilistic methods now provide analysts with ‘credible sets’ of variants to work with. Efforts mentioned for (1) have now contributed enormously to translate GWAS variants into ‘effector’ genes and transcripts and can provide evidence of whether such genes are locally or distally regulated, and how. 
@@ -108,11 +109,14 @@ However, despite all of these advances, the number of GWAS variants that have be
 
                     <p>
                         In a recent paper put forward by Boyle, Li & Prichard, they propose that as GWAS sample sizes increase (Many consortia are now thinking in terms of 1-5M samples), the number of variants discovered per complex trait is more likely to be in the range of 100k+. This will be somewhat dependent on the genetic architecture of the trait, and how well defined it is, but very few scientists approaching the common disease, common variant hypothesis a decade ago would have predicted the extent of this polygenicity. Boyle et al., posit several lines of evidence for their hypothesis:
-
-Variants discovered through GWAS seem to be generated from a uniform process (they are uniformly distributed throughout the human genome)
-The majority of SNPs tested in GWAS, have non-zero estimated effects on the phenotype of interest (height given as an example - 62% of SNPs show a non-zero effect)
-The evidence for specific pathway enrichment tends to be weak and; SNPs near broadly expressed genes explain more heritability than genes expressed in the (expected) disease-relevant tissue.
-
+</p>
+                <p>
+                <ol>
+<li>Variants discovered through GWAS seem to be generated from a uniform process (they are uniformly distributed throughout the human genome)</li>
+<li>The majority of SNPs tested in GWAS, have non-zero estimated effects on the phenotype of interest (height given as an example - 62% of SNPs show a non-zero effect)</li>
+<li>The evidence for specific pathway enrichment tends to be weak and; SNPs near broadly expressed genes explain more heritability than genes expressed in the (expected) disease-relevant tissue.</li>
+                    </p>
+                <p>
 If one takes the number of height GWAS variants per chromosome, and correlate it with chromosome length, a simple relationship is found: The longer the chromosome, the more variants associated to height. Is a uniform distribution of height variants expected? In addition to height, Boyle et al., reevaluated the results of a schizophrenia GWAS and along with Price et al,. Find something quite surprising; 70-100% of 1MB regions of the genome contribute at least some heritability to schizophrenia. This finding is unlikely to hold for all traits, at least for where we are currently with GWAS discovery. Autoimmune diseases for example show a burden of association around the MHC, but one could predict as GWAS sample size increases, the disease variant distribution will tend towards a uniform expectation, and this will relate to the extent of non-core variant association (more on that later). The idea is therefore as N tends to an ever larger number, the ability to find variants with minuscule odd ratios (approaching 1) will be more likely due to power gains. Hardly a revelation, but the extent, function and utility of these variants with tiny effects and the implications for GWAS and biological understanding are not widely documented or considered elsewhere. 
                     </p>
                     
