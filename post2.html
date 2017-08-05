@@ -98,7 +98,7 @@ A simple cost-function is:
                       <p>
 So how do we do learn the weights? (Backpropagation) Fairly simply with some high school calculus, albeit it gets fairly hairy after a single hidden layer. 
 We want to minimise our prediction error, with respect to all of our individual weights. 
-We can do this because our cost function is differentiable (\(\frac{\partial C}{\partial y^{'}} = \hat{y} - y \))  and so are our activation functions. 
+We can do this because our cost function is differentiable (\(\frac{\partial C}{\partial y^{'}} = \hat{y} - y \))  and so are our activation functions (\(\frac{\partial g(x)}{\partial x} = g(x) \cdot (1-g(x))\). 
 When we want to compute the minimum of a function, we compute its derivative and set it to zero and solve. 
 After obtaining a prediction from the feed forward step (\(\hat{y}\)) we compute our prediction error. 
 This error is then back propagated along the network so we can perform weight updates. 
