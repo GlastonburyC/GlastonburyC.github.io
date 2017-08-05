@@ -102,7 +102,7 @@ We can do this because our cost function is differentiable (\(\frac{\partial C}{
 When we want to compute the minimum of a function, we compute its derivative and set it to zero and solve. 
 After obtaining a prediction from the feed forward step (\(\hat{y}\)) we compute our prediction error. 
 This error is then back propagated along the network so we can perform weight updates. 
-To update the weights we compute the partial derivative of the cost function with respect to every weight in the network (\(\frac{\partial C}{\partial w_{n}}) , 
+To update the weights we compute the partial derivative of the cost function with respect to every weight in the network (\(\frac{\partial C}{\partial w_{n}}\)) , 
 thus allowing us to model how the prediction error changes with respect to each of the current network weights. 
 This derivative can be broken down (via the chain rule) as its a composite function, 
 to represent multiple derivatives at every layer and weight throughout the network. 
@@ -111,7 +111,7 @@ to represent multiple derivatives at every layer and weight throughout the netwo
                     <p>
 Once we know how the prediction error changes with respect to the weights (the computed gradient) 
 We update the weights by subtracting a proportion of this gradient. This proportion is yet another hyperparameter, 
-called the learning rate \(\nu\), which determines how stable and quickly a network learns. Typically, the amount of input data we have is so large, 
+called the learning rate \(\eta\), which determines how stable and quickly a network learns. Typically, the amount of input data we have is so large, 
 it’s not possible to feed all of it into the network at one go to calculate how the prediction error changes with respect for the 
 weights for all inputs. Multiple options exist, the most commonly used are mini-batch updates or online learning. 
 A mini-batch (mini-batch size being another hyperparameter!) 
@@ -144,18 +144,18 @@ Multiple optimisers exist to perform this step (Stochastic gradient descent, RMS
 
                     <p>
 So great? Let's apply it to imaging data! Sadly this is a bad idea. Firstly, imaging data is represented as a matrix if it's grayscale or a 3D tensor if it’s RGB. 
-You can represent it as a single vector, a grey scale MNIST digit for example is \(28\times28 = 784\) length vector, 
+You can represent it as a single vector, a grey scale MNIST digit for example is \(28 \times 28 = 784\) length vector, 
 and for this problem it’s manageable (and can obtain 96% accuracy classifying 60k digits). 
 If we have a single hidden layer of 10 neurons (one for each digit 0-9) that would be \{28\times28\times10 = 7,840\) connection weights! 
-But what about a image of dimensions \(299\times299\)? We would need at least 894,010 weights! 
+But what about a image of dimensions \(299 \times 299 \)? We would need at least 894,010 weights! 
 This doesn’t make any sense, as we are ignoring the fact the input is an image and therefore has local dependencies 
 (parts of an image are more similar to each other in space) and also we are naively flattening the input into a N-dimensional vector 
-(where \(N = width\timesheight\)). We need convolutions.
+(where \(N = w \times h\)), where w = width, h = height. We need convolutions.
 </p>
                 <p>
 Convolutional neural networks have transformed image recognition, segmentation, localisation and regression tasks (and fairly recently too). 
 The basic idea is instead of having fully connected layers like in ANNs in which each neuron in each layer is connected and has its own weights, we have layers of neurons that share \(N\) filters. 
-Each filter is defined as an \(n \times m\) matrix (however RGB images have three colour channels, \(n \times m \times 3\)), 
+Each filter is defined as an \(n \times m\) matrix (however RGB images have three colour channels, \(n \times m \times 3 \)), 
 which slide across the input image volume, multiplying themselves by the pixel values. 
 The weights of the filter are shared across neurons in each layer, reducing the number of weights required dramatically. Put another way,
 The filters that slide across the entire image space have the same weights.
