@@ -100,11 +100,12 @@ So how do we do this? Fairly simply with some high school calculus, albeit it ge
 We want to minimise our prediction error, with respect to all of our individual weights. 
 We can do this because our cost function is differentiable and so are our activation functions. 
 When we want to compute the minimum of a function, we compute its derivative and set it to zero and solve. 
-After obtaining a prediction from the feed forward step (\(y_{hat} \)) we compute our prediction error. 
+After obtaining a prediction from the feed forward step (\(y_{hat}\)) we compute our prediction error. 
 This error is then back propagated along the network so we can perform weight updates. 
 To update the weights we compute the partial derivative of the cost function with respect to every weight in the network, 
 thus allowing us to model how the prediction error changes with respect to each of the current network weights. 
 This derivative can be broken down (via the chain rule) to represent multiple derivatives at every layer through the network. 
+
                     </p>
                     <p>
 However, despite all of these advances, the number of GWAS variants that have been fully mapped out (SNP > gene/chromatin conformation > endophenotypic change > whole body phenotype) isn’t so impressive (the individual efforts are impressive, the overall number isn’t). If one considers the number of variants that have subsequently impacted treatment, the results are even less inspiring. It is however early in the (GWAS) story - and many modern high-throughput screening methods are coming online at an astonishing rate to aid validation, variant interpretation and to understand regulatory function. Whilst the problems listed above are relevant to previous and current GWAS discovery, more issues emerge in terms of new GWAS with ever increasing sample sizes.
