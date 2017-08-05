@@ -241,7 +241,7 @@ but also high level representations, including rotation invariances later on (de
 To reduce the parameter space even more, several operations are commonly used in practice when designing CNNs. 
 Pooling operations after each convolutional layer results in only the maximum activation being kept for each filter 
 across the input image (max pooling, it can also be average pooling). This reduces the dimension of the input to the next layer, 
-by: \(\frac{w - f + 2*p}{s +1} \). Where w = image width, p = padding. The filter size (f) and stride (s) (how many pixels to slide the filter across the image) are again,
+by: \(\frac{w - f + 2p}{s + 1} \). Where w = image width, p = padding. The filter size (f) and stride (s) (how many pixels to slide the filter across the image) are again,
 user defined parameters. So after each convolutional + max pooling layer, the input is reducing in dimension and therefore the number
 of weights required is also decreasing, reducing the chance of overfitting. 
   </p>   
