@@ -164,10 +164,10 @@ The filters that slide across the entire image space have the same weights.
 A example of a filter and a convolution is demonstrated below:
 </p>
 <p>
-Start with a random matrix:
+Start with a random matrix of weights:
 </p>
    <p>
-   $$ \begin{bmatrix}
+   $$ W = \begin{bmatrix}
  .001&.1  &.03  &.4 \\ 
  .1&.0.2  &.78  &0.2 \\ 
  0.2&.15  &.01  &0 \\ 
@@ -175,19 +175,42 @@ Start with a random matrix:
 \end{bmatrix} $$
    </p>
    <p>
-Whose weight evolve (are learned) to become, for example, a square detector:
-$$ \begin{bmatrix}
+Which evolves (is learned) to become, for example, a square detector:
+$$ W =  \begin{bmatrix}
  .2&.1  &.03  &.4 \\ 
  .1&.89  &.99  &0 \\ 
  0&.70  &.92  &0 \\ 
  0&0  &.05  &.1 
 \end{bmatrix} $$
    </p>
-Out input image is:
-  
+   <p>
+For the input image:
+  $$ I =  \begin{bmatrix}
+ 255&0  &0  &0 \\ 
+ 0&220  &139  &0 \\ 
+ 0&180  &49  &0 \\ 
+ 0&0  &0  &255 
+\end{bmatrix} $$
+   </p>
+   <p>
 Hence the matrix dot product results in a square-like activation:
 
-  
+ $$   \begin{bmatrix}
+ .2&.1  &.03  &.4 \\ 
+ .1&.89  &.99  &0 \\ 
+ 0&.70  &.92  &0 \\ 
+ 0&0  &.05  &.1 
+\end{bmatrix} \cdot \begin{bmatrix}
+ 255&0  &0  &0 \\ 
+ 0&220  &139  &0 \\ 
+ 0&180  &49  &0 \\ 
+ 0&0  &0  &255 
+\end{bmatrix} = \begin{bmatrix}
+ 51&25.5  &7.65  &102 \\ 
+ 22&293.1  &345.68  &0 \\ 
+ 18&194.5  &223.28  &0 \\ 
+ 0&0  &12.75  &25.5 
+\end{bmatrix} $$
  
      
                     </p>
