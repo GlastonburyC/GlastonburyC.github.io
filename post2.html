@@ -101,7 +101,7 @@ We want to minimise our prediction error, with respect to all of our individual 
 We can do this because our cost function is differentiable: 
                         $$\frac{\partial C}{\partial y^{'}} = \hat{y} - y $$
 and so are our activation functions: 
-                        $$\frac{\partial g(x)}{\partial x} = g(x) \cdot (1-g(x))$$ 
+                        $$\frac{\partial f(x)}{\partial x} = f(x) \cdot (1-f(x))$$ 
 After obtaining a prediction from the feed forward step (\(\hat{y}\)) we compute our prediction error. 
 This error is then back propagated along the network so we can perform weight updates. 
 To update the weights we compute the partial derivative of the cost function with respect to every weight in the network (\(\frac{\partial C}{\partial w_{n}}\)) , 
