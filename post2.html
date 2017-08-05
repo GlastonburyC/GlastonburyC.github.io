@@ -95,7 +95,8 @@ Graphically, an artifical neural network looks as follows:
 <p>It is composed of inputs ( \(x_{n}\)), hidden layers \((y_{j}\)) and an output layer (\(z_{k}\)). Each input value is associated to a weight connected to each neuron in the hidden layer. 
  Each of the neurons in the hidden layer (\(u_{j}\)) are connected to each other neuron in \(u_{j+1}\). </p>
                  <p>
-A way of thinking about a feedforward network or artificial neural network (ANN) is as glorified composite function, \( f(g(h(x))) \) of matrix multiplications (\( h(x) = \textbf{W}\textbf{x} \)) that are summed: $$ g(x) = \sum\limits_{n=1}^{n}\textbf{W}\textbf{x} $$ and fed as inputs to a non-linear activation function: $$ f(x) = \frac{1}{1 + e^{-g(x)}} $$ 
+A way of thinking about a feedforward network or artificial neural network (ANN) is as glorified composite function: $$ f(g(h(x))) $$ of 
+                   matrix multiplications: $$ h(x) = \textbf{W}\textbf{x} $$ that are summed: $$ g(x) = \sum\limits_{n=1}^{n}\textbf{W}\textbf{x} $$ and fed as inputs to a non-linear activation function: $$ f(x) = \frac{1}{1 + e^{-g(x)}} $$ 
 with each neuron having randomly initialised weights that are optimised to minimise some defined objective function. 
 So each neuron in each layer computes the weighted sum of its inputs. This product is then passed through a non-linearity  function. Finally, quite often for classification problems, a final softmax function also known as logistic is used to constrain the output values to \([0-1]\) which are readily interpreted as probabilities. 
 This simple model results in a universal classifier and given multiple hidden layers can represent any Boolean function (AND, OR, XOR..) and is in fact, a universal appoximator.
