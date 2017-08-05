@@ -83,17 +83,16 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 <p>
-A feedforward network or artificial neural network (ANN) can be described fairly briefly. An ANN is a glorified composite function: \( f(g(h(x))) \) of matrix multiplications: \( \textbf{W}\textbf{x} \) that are summed and fed as inputs to several non-linear activation functions \( \sum\limits_{n=1}^{n}\frac{1}{1 + e^{-\textbf{W}\textbf{x}}} \) (ex. sigmoid) with each neuron having weights that are learned to minimise some objective function. 
-So each neuron computes the weighted sum of its inputs, non-linearity is then introduced and quite often for classification problems, a final softmax function, also known as logistic, is used to constrain the output values to [0-1] which are readily interpreted as probabilities. 
+A feedforward network or artificial neural network (ANN) can be described fairly briefly. An ANN is a glorified composite function, \( f(g(h(x))) \) of matrix multiplications (\( \textbf{W}\textbf{x} \)) that are summed and fed as inputs to a non-linear activation function \( \sum\limits_{n=1}^{n}\frac{1}{1 + e^{-\textbf{W}\textbf{x}}} \) (ex. sigmoid) with each neuron having randomly initialised weights that are optimised to minimise some defined objective function. 
+So each neuron computes the weighted sum of its inputs, a non-linearity is then introduced and quite often for classification problems, a final softmax function, also known as logistic is used to constrain the output values to [0-1] which are readily interpreted as probabilities. 
 This simple model results in a universal classifier and given multiple hidden layers can represent any Boolean function (AND, OR, XOR..) and is in fact, a universal appoximator.
 </p>
 <p>
-<ol>
-    
-    <li><b>The genetic architecture - GWAS variants are non-coding ‘enriched’.</b> </li>
-    <li><b>The LD-structure of the (European) human genome.</b></li>
-    <li><b>Proximity. What gene/s matters?.</b></li>
-                    </ol>
+So what do we need to learn? We need to learn the weights. 
+Like any linear classification or regression task, given a set of inputs and their labels/values \( (x,y)\) we want to learn a function \(g(x)\) that maps \(x \Rightarrow y \). 
+To do this, we define a cost/objective function (\(F(x)\)) which specifies what we want to achieve, i.e. We want to minimise the difference between the networks predictions and the known labels/values. 
+A commonly used cost-function for classification is the binary cross-entropy loss, or categorical cross-entropy loss for multiple labels \(y_{1}...y_{n} \)).
+
     </p>
                     <p>
 Many of these challenges have been, or are being overcome. The non-coding genome continues to be extensively studied through research-efforts such as GTEx, ENCODE and Roadmap, building extensive regulatory genomic datasets to relate variants to expression (eQTLs), protein levels (pQTLs), expression dynamics (Alternative splicing, Nonsense Mediated Decay) and the regulatory chromatin landscape. Fine-mapping and trans-ethnic GWAS have reduced the burden of LD and many probabilistic methods now provide analysts with ‘credible sets’ of variants to work with. Efforts mentioned for (1) have now contributed enormously to translate GWAS variants into ‘effector’ genes and transcripts and can provide evidence of whether such genes are locally or distally regulated, and how. 
