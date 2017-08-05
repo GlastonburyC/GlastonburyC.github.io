@@ -93,7 +93,7 @@ Like any linear classification or regression task, given a set of inputs and the
 To do this, we define a cost/objective function (\(F(x)\)) which specifies what we want to achieve, i.e. We want to minimise the difference between the networks predictions and the known labels/values. 
 A simple cost-function is:
  
- $$ C(y,\hat{y}) = \frac{1}{2n}(\hat{y} - y)^{2} $$
+ $$ C(y,\hat{y}) = \frac{1}{2}(\norm{\hat{y} - y)^{2}} $$
   
                       <p>
 So how do we do learn the weights? (Backpropagation) Fairly simply with some high school calculus, albeit it gets fairly hairy after a single hidden layer. 
