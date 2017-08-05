@@ -98,19 +98,20 @@ A simple cost-function is:
                       <p>
 So how do we do learn the weights? (Backpropagation) Fairly simply with some high school calculus, albeit it gets fairly hairy after a single hidden layer. 
 We want to minimise our prediction error, with respect to all of our individual weights. 
-We can do this because our cost function is differentiable (\(\frac{\partial C}{\partial y^{'}} = \hat{y} - y \)  and so are our activation functions. 
+We can do this because our cost function is differentiable (\(\frac{\partial C}{\partial y^{'}} = \hat{y} - y \))  and so are our activation functions. 
 When we want to compute the minimum of a function, we compute its derivative and set it to zero and solve. 
 After obtaining a prediction from the feed forward step (\(\hat{y}\)) we compute our prediction error. 
 This error is then back propagated along the network so we can perform weight updates. 
-To update the weights we compute the partial derivative of the cost function with respect to every weight in the network, 
+To update the weights we compute the partial derivative of the cost function with respect to every weight in the network (\(\frac{\partial C}{\partial w_{n}}) , 
 thus allowing us to model how the prediction error changes with respect to each of the current network weights. 
-This derivative can be broken down (via the chain rule) to represent multiple derivatives at every layer through the network. 
+This derivative can be broken down (via the chain rule) as its a composite function, 
+to represent multiple derivatives at every layer and weight throughout the network. 
 
                     </p>
                     <p>
 Once we know how the prediction error changes with respect to the weights (the computed gradient) 
 We update the weights by subtracting a proportion of this gradient. This proportion is yet another hyperparameter, 
-the learning rate, which determines how stable and quickly a network learns. Typically, the amount of input data we have is so large, 
+called the learning rate \(\nu\), which determines how stable and quickly a network learns. Typically, the amount of input data we have is so large, 
 it’s not possible to feed all of it into the network at one go to calculate how the prediction error changes with respect for the 
 weights for all inputs. Multiple options exist, the most commonly used are mini-batch updates or online learning. 
 A mini-batch (mini-batch size being another hyperparameter!) 
