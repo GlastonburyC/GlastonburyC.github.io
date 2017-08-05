@@ -162,8 +162,24 @@ The filters that slide across the entire image space have the same weights.
    </p>
    <p>                  
 A example of a filter and a convolution is demonstrated below:
-   </p>
-   <p>
+</p>
+<p>
+Start with a random matrix:
+
+Whose weight evolve (are learned) to become, for example, a square detector:
+$$ \begin{bmatrix}
+ .2&.1  &.03  &.4 \\ 
+ .1&.89  &.99  &0 \\ 
+ 0&.70  &.92  &0 \\ 
+ 0&0  &.05  &.1 
+\end{bmatrix} $$
+  
+Out input image is:
+  
+Hence the matrix dot product results in a square-like activation:
+
+  
+ 
      
                     </p>
                 <p>
