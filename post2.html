@@ -92,8 +92,8 @@ So what do we need to learn? We need to learn the weights.
 Like any linear classification or regression task, given a set of inputs and their labels/values \( (x,y)\) we want to learn a function \(g(x)\) that maps \(x \Rightarrow y \). 
 To do this, we define a cost/objective function (\(F(x)\)) which specifies what we want to achieve, i.e. We want to minimise the difference between the networks predictions and the known labels/values. 
 A commonly used cost-function for classification is the softmax:
-  
-  $$ \frac{e^{x_j}}{\sum_{k}e^{x^_k}} $$
+ 
+  \[\frac{e^{x_j}}{\sum\limits_{k}e^{x^_k}}\]
   
                       <p>
 So how do we do this? Fairly simply with some high school calculus, albeit it gets fairly hairy after a single hidden layer. 
