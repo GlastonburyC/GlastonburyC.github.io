@@ -165,7 +165,16 @@ A example of a filter and a convolution is demonstrated below:
 </p>
 <p>
 Start with a random matrix:
-
+</p>
+   <p>
+   $$ \begin{bmatrix}
+ .001&.1  &.03  &.4 \\ 
+ .1&.0.2  &.78  &0.2 \\ 
+ 0.2&.15  &.01  &0 \\ 
+ 0&0  &.01  &.001 
+\end{bmatrix} $$
+   </p>
+   <p>
 Whose weight evolve (are learned) to become, for example, a square detector:
 $$ \begin{bmatrix}
  .2&.1  &.03  &.4 \\ 
@@ -173,7 +182,7 @@ $$ \begin{bmatrix}
  0&.70  &.92  &0 \\ 
  0&0  &.05  &.1 
 \end{bmatrix} $$
-  
+   </p>
 Out input image is:
   
 Hence the matrix dot product results in a square-like activation:
