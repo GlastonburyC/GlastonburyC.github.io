@@ -96,7 +96,7 @@ A simple cost-function is:
  $$ C(y,\hat{y}) = \frac{1}{2}(\|{\hat{y} - y\|)^{2}} $$
   
                       <p>
-So how do we do learn the weights? (<a href="#backprop">back propagation</a>) Fairly simply with some high school calculus, albeit it gets fairly hairy after a single hidden layer. 
+So how do we do learn the weights (<a href="#backprop">back propagation</a>)? Fairly simply with some high school calculus, albeit it gets fairly hairy after a single hidden layer. 
 We want to minimise our prediction error, with respect to all of our individual weights. 
 We can do this because our cost function is differentiable: 
                         $$\frac{\partial C}{\partial y^{'}} = \hat{y} - y $$
