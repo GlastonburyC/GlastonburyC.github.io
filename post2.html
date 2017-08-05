@@ -98,7 +98,10 @@ A simple cost-function is:
                       <p>
 So how do we do learn the weights? (<a href="#backprop">back propagation</a>) Fairly simply with some high school calculus, albeit it gets fairly hairy after a single hidden layer. 
 We want to minimise our prediction error, with respect to all of our individual weights. 
-We can do this because our cost function is differentiable (\(\frac{\partial C}{\partial y^{'}} = \hat{y} - y \))  and so are our activation functions (\(\frac{\partial g(x)}{\partial x} = g(x) \cdot (1-g(x))\). 
+We can do this because our cost function is differentiable: 
+                        $$\frac{\partial C}{\partial y^{'}} = \hat{y} - y $$
+and so are our activation functions: 
+                        $$\frac{\partial g(x)}{\partial x} = g(x) \cdot (1-g(x))$$ 
 After obtaining a prediction from the feed forward step (\(\hat{y}\)) we compute our prediction error. 
 This error is then back propagated along the network so we can perform weight updates. 
 To update the weights we compute the partial derivative of the cost function with respect to every weight in the network (\(\frac{\partial C}{\partial w_{n}}\)) , 
@@ -241,7 +244,9 @@ but also high level representations, including rotation invariances later on (de
 To reduce the parameter space even more, several operations are commonly used in practice when designing CNNs. 
 Pooling operations after each convolutional layer results in only the maximum activation being kept for each filter 
 across the input image (max pooling, it can also be average pooling). This reduces the dimension of the input to the next layer, 
-by: \(\frac{w - f + 2p}{s + 1} \). Where \(w\) = image width, \(p\) = padding. The filter size (\(f\)) and stride (\(s\)) (how many pixels to slide the filter across the image) are again,
+by: 
+                    $$ \frac{w - f + 2p}{s + 1} $$
+Where \(w\) = image width, \(p\) = padding. The filter size (\(f\)) and stride (\(s\)) (how many pixels to slide the filter across the image) are again,
 user defined parameters. So after each convolutional + max pooling layer, the input is reducing in dimension and therefore the number
 of weights required is also decreasing, reducing the chance of overfitting. 
   </p>   
