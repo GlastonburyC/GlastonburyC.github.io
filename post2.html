@@ -146,16 +146,16 @@ Multiple optimisers exist to perform this step (Stochastic gradient descent, RMS
 So great? Let's apply it to imaging data! Sadly this is a bad idea. Firstly, imaging data is represented as a matrix if it's grayscale or a 3D tensor if it’s RGB. 
 You can represent it as a single vector, a grey scale MNIST digit for example is \(28 \times 28 = 784\) length vector, 
 and for this problem it’s manageable (and can obtain 96% accuracy classifying 60k digits). 
-If we have a single hidden layer of 10 neurons (one for each digit 0-9) that would be \{28\times28\times10 = 7,840\) connection weights! 
+If we have a single hidden layer of 10 neurons (one for each digit 0-9) that would be \(28 \times 28 \times 10 = 7,840 \) connection weights! 
 But what about a image of dimensions \(299 \times 299 \)? We would need at least 894,010 weights! 
 This doesn’t make any sense, as we are ignoring the fact the input is an image and therefore has local dependencies 
 (parts of an image are more similar to each other in space) and also we are naively flattening the input into a N-dimensional vector 
-(where \(N = w \times h\)), where w = width, h = height. We need convolutions.
+(where: \(N = w \times h \)), where w = width, h = height. We need convolutions.
 </p>
                 <p>
 Convolutional neural networks have transformed image recognition, segmentation, localisation and regression tasks (and fairly recently too). 
 The basic idea is instead of having fully connected layers like in ANNs in which each neuron in each layer is connected and has its own weights, we have layers of neurons that share \(N\) filters. 
-Each filter is defined as an \(n \times m\) matrix (however RGB images have three colour channels, \(n \times m \times 3 \)), 
+Each filter is defined as an \(n \times m \) matrix (however RGB images have three colour channels, \(n \times m \times 3 \)), 
 which slide across the input image volume, multiplying themselves by the pixel values. 
 The weights of the filter are shared across neurons in each layer, reducing the number of weights required dramatically. Put another way,
 The filters that slide across the entire image space have the same weights.
