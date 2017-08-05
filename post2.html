@@ -96,7 +96,7 @@ A simple cost-function is:
  $$ C(y,\hat{y}) = \frac{1}{2}(\|{\hat{y} - y\|)^{2}} $$
   
                       <p>
-So how do we do learn the weights? (Backpropagation) Fairly simply with some high school calculus, albeit it gets fairly hairy after a single hidden layer. 
+So how do we do learn the weights? (<a href="#backprop">back propagation</a>) Fairly simply with some high school calculus, albeit it gets fairly hairy after a single hidden layer. 
 We want to minimise our prediction error, with respect to all of our individual weights. 
 We can do this because our cost function is differentiable (\(\frac{\partial C}{\partial y^{'}} = \hat{y} - y \))  and so are our activation functions (\(\frac{\partial g(x)}{\partial x} = g(x) \cdot (1-g(x))\). 
 After obtaining a prediction from the feed forward step (\(\hat{y}\)) we compute our prediction error. 
@@ -259,6 +259,7 @@ providing practical examples and implementations. In later blogs I'd like to exp
 and how they can be used to model multiple biological data sources.
  </p>
  <p>
+        <a name="backprop"></a>
    <b> Back propagation derivation: </b>
              
              
