@@ -108,8 +108,35 @@ This derivative can be broken down (via the chain rule) to represent multiple de
 
                     </p>
                     <p>
-However, despite all of these advances, the number of GWAS variants that have been fully mapped out (SNP > gene/chromatin conformation > endophenotypic change > whole body phenotype) isn’t so impressive (the individual efforts are impressive, the overall number isn’t). If one considers the number of variants that have subsequently impacted treatment, the results are even less inspiring. It is however early in the (GWAS) story - and many modern high-throughput screening methods are coming online at an astonishing rate to aid validation, variant interpretation and to understand regulatory function. Whilst the problems listed above are relevant to previous and current GWAS discovery, more issues emerge in terms of new GWAS with ever increasing sample sizes.
+Once we know how the prediction error changes with respect to the weights (the computed gradient) 
+We update the weights by subtracting a proportion of this gradient. This proportion is yet another hyperparameter, 
+the learning rate, which determines how stable and quickly a network learns. Typically, the amount of input data we have is so large, 
+it’s not possible to feed all of it into the network at one go to calculate how the prediction error changes with respect for the 
+weights for all inputs. Multiple options exist, the most commonly used are mini-batch updates or online learning. 
+A mini-batch (mini-batch size being another hyperparameter!) 
+is the number of training examples the network will use for each weight update. To do this, the average gradient for 
+the mini-batch of inputs is used to update the weights - representing how the prediction error varies with this sample of the input space. 
+Online learning on the other hand, uses a single training example for each weight update. 
+Multiple optimisers exist to perform this step (Stochastic gradient descent, RMSprop, Adagrad, AdaDelta, Adam…).
 </p>
+<p>
+  So as a recap, we have the following hyper parameters:
+ <ol>
+ <li>Number of neurons</li>
+ <li>Number of layers</li>
+ <li>Learning rate</li>
+ <li>Mini-batch size</li>
+   <li>Optimizer (Can have additional parameters like momentum)</li>
+                  </ol>
+                  </p>
+              <p>
+The following choices:
+ <ol>
+ <li>Non-linear activation function</li>
+ <li>Cost function</li>
+ <li>Type of weight initialisation (haven’t detailed this, assume randomly initialised weights)</li>
+
+                
                     <h2 class="section-heading">Extent of polygenicity</h2>
 
                     <p>
