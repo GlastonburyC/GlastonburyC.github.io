@@ -84,7 +84,7 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 <p>
 A feedforward network or artificial neural network (ANN) can be described fairly briefly. An ANN is a glorified composite function, \( f(g(h(x))) \) of matrix multiplications (\( h(x) = \textbf{W}\textbf{x} \)) that are summed \( g(x) = \sum\limits_{n=1}^{n}\textbf{W}\textbf{x} \) and fed as inputs to a non-linear activation function \( f(x) = \frac{1}{1 + e^{-g(x)}} \) (eg. sigmoid) with each neuron having randomly initialised weights that are optimised to minimise some defined objective function. 
-So each neuron computes the weighted sum of its inputs, a non-linearity is then introduced and quite often for classification problems, a final softmax function, also known as logistic is used to constrain the output values to [0-1] which are readily interpreted as probabilities. 
+So each neuron computes the weighted sum of its inputs, a non-linearity is then introduced and quite often for classification problems, a final softmax function, also known as logistic is used to constrain the output values to \([0-1]\) which are readily interpreted as probabilities. 
 This simple model results in a universal classifier and given multiple hidden layers can represent any Boolean function (AND, OR, XOR..) and is in fact, a universal appoximator.
 </p>
 <p>
