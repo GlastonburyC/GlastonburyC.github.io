@@ -90,11 +90,11 @@ In this blog, I aim to introduce what both an artifical neural network and convo
                   <p> 
 Graphically, an artifical neural network looks as follows:
 <p>
-   <img src="IMG_0084.PNG" style="width:800px;height:300px;">
+   <img src="IMG_0084.PNG" style="width:750px;height:300px;">
     </p>
-<p>It is composed of an input ( \(i_{n}\)), a hidden layer \((h_{k}\))(or multiple hidden layers) 
-and an output layer (\(o_{n}\)). Each input value is assigned a weight connected to each neuron in the hidden layer. 
- Each of the neurons in the hidden layer (\(h_{k}\)) are connected to each other neuron in \(h_{k+1}\). </p>
+<p>It is composed of an input ( \(x_{n}\)), a hidden layer \((y_{j}\))(or multiple hidden layers) 
+and an output layer (\(z_{n}\)). Each input value is assigned a weight connected to each neuron in the hidden layer. 
+ Each of the neurons in the hidden layer (\(y_{j}\)) are connected to each other neuron in \(y_{j+1}\). </p>
                  <p>
 A feedforward network or artificial neural network (ANN) is a glorified composite function, \( f(g(h(x))) \) of matrix multiplications (\( h(x) = \textbf{W}\textbf{x} \)) that are summed \( g(x) = \sum\limits_{n=1}^{n}\textbf{W}\textbf{x} \) and fed as inputs to a non-linear activation function \( f(x) = \frac{1}{1 + e^{-g(x)}} \) (eg. sigmoid) with each neuron having randomly initialised weights that are optimised to minimise some defined objective function. 
 So each neuron in each layer computes the weighted sum of its inputs. This product is then passed through a non-linearity  function. Finally, quite often for classification problems, a final softmax function also known as logistic is used to constrain the output values to \([0-1]\) which are readily interpreted as probabilities. 
