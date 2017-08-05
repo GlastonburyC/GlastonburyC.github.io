@@ -93,14 +93,14 @@ Like any linear classification or regression task, given a set of inputs and the
 To do this, we define a cost/objective function (\(F(x)\)) which specifies what we want to achieve, i.e. We want to minimise the difference between the networks predictions and the known labels/values. 
 A commonly used cost-function for classification is the softmax:
  
-  \[\frac{e^{x_{j}}}{\sum\limits_{k}e^{x^_{k}}}\]
+  $$\frac{e^{x_{j}}}{\sum\limits_{k}e^{x_{k}}}$$
   
                       <p>
 So how do we do this? Fairly simply with some high school calculus, albeit it gets fairly hairy after a single hidden layer. 
 We want to minimise our prediction error, with respect to all of our individual weights. 
 We can do this because our cost function is differentiable and so are our activation functions. 
 When we want to compute the minimum of a function, we compute its derivative and set it to zero and solve. 
-After obtaining a prediction from the feed forward step (\(y_{hat}\)) we compute our prediction error. 
+After obtaining a prediction from the feed forward step (\\hat{y}\)) we compute our prediction error. 
 This error is then back propagated along the network so we can perform weight updates. 
 To update the weights we compute the partial derivative of the cost function with respect to every weight in the network, 
 thus allowing us to model how the prediction error changes with respect to each of the current network weights. 
