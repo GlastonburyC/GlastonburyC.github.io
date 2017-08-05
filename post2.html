@@ -167,7 +167,7 @@ A example of a filter and a convolution is demonstrated below:
 Start with a random matrix of weights:
 </p>
    <p>
-   $$ W = \begin{bmatrix}
+   $$ W_{t} = \begin{bmatrix}
  .001&.1  &.03  &.4 \\ 
  .1&.0.2  &.78  &0.2 \\ 
  0.2&.15  &.01  &0 \\ 
@@ -176,7 +176,7 @@ Start with a random matrix of weights:
    </p>
    <p>
 Which evolves (is learned) to become, for example, a square detector:
-$$ W =  \begin{bmatrix}
+$$ W_{t+n} =  \begin{bmatrix}
  .2&.1  &.03  &.4 \\ 
  .1&.89  &.99  &0 \\ 
  0&.70  &.92  &0 \\ 
