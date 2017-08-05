@@ -215,14 +215,21 @@ Hence the matrix dot product results in a square-like activation:
      <p>
        Visualisation of this process is even more intuitive:
    </p>
-   <img src="filter_activation.png" style="width:650px;height:200px;">>
+   <img src="filter_activation.png" style="width:650px;height:200px;">
    
    
      
                     </p>
                 <p>
- Previous studies have demonstrated (<a href="http://www.nature.com/ng/journal/v44/n3/full/ng.1108.html">Visscher</a>, <a href="http://biorxiv.org/content/early/2017/01/25/103069">Price</a> and others) that if one takes the number of GWAS variants per chromosome for height, and correlate it with chromosome length, a simple relationship is found: The longer the chromosome, the more variants are associated to height. Is this uniform distribution of height variants expected? In addition to height, <a href="http://www.cell.com/cell/pdf/S0092-8674(17)30629-3.pdf"><it>Boyle et al., 2017</i></a> reevaluated the results of a schizophrenia GWAS and along with Price et al,. Find something quite surprising; 70-100% of 1MB regions of the genome contribute at least some heritability to schizophrenia. This finding is unlikely to hold for all traits, at least for where we are currently with GWAS discovery. Autoimmune diseases for example show a burden of association around the MHC, but one could predict as GWAS sample size increases, the disease variant distribution will tend towards a uniform expectation, and this will relate to the extent of non-core variant association (more on that later). The idea is therefore as N tends to an ever larger number, the ability to find variants with minuscule odd ratios (approaching 1) will be more likely due to power gains. Hardly a revelation, but the extent, function and utility of these variants with tiny effects and the implications for GWAS and biological understanding are not widely documented or considered elsewhere. 
-                    </p>
+                  
+Given a number of filters, an increasingly complex representation of image features can be built up with deeper and deeper networks. 
+The feature map of the first few layers of a CNN tend to learn edge detectors, colour differences, blob detectors etc. 
+Further into the network, more complex representations can be recognised readily and given the weights are themselves images, 
+they can be visualised and (somewhat) understood. Below is an example of a CNN trained on 1000 different image tasks, 
+and its (learned) filters visualised. You can clearly see both low level features early in the network, 
+but also high level representations, including rotation in variances later on (deeper) into the network.
+                    
+              </p>
                     
                     <h2 class="section-heading">The Omnigenic model. Biology is complex. Genes don’t work in silos.</h2>
 <p>
