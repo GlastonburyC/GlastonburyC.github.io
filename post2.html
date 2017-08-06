@@ -303,7 +303,24 @@ What this means is, we can understand how the cost function changes with respect
 by computing how the output changes, with respect to the weighted-input activations and how the activations change with 
 respect to the weights. Clearly it's called back propogation as these gradients are being computed going back from the output 
 to the input layer.
-               
+
+    <p>
+      The last partial \(\frac{\partial neuron}{\partial w} \) only depends on \(x \) given \(g(x)\) above so it's simply:
+      
+      $$  \frac{\partial neuron}{\partial w} = x $$
+      
+      We have already defined \(\frac{\partial o}{\partial neuron} \) above as it is simply the derivative of the activation function :
+      
+      $$ \frac{\partial o}{\partial neuron} = \frac{\partial f(x)}{\partial x} = f(x) \cdot (1-f(x)) $$ 
+      
+      Finally we are left with \(\frac{\partial C}{\partial o}\) which if the neuron is in the output layer it is easily given by the derivative of the 
+      cost function defined above. This is because only a single weight connects us to a particular output. However, if we are in a hidden layer, in a deep network, 
+      we have to consider the cost function error to all neurons this weight can lead to (see diagram at start), so we chain rule again!:
+      
+       $$ \sum\limit_{k} \frac{\partial C}{\partial o_{j}} = $$ \sum\limits_{i \set I} \frac{\partial C}{partial o_{i}} \frac{\partial o_{i}}{\partial neuron_{i}} \frac{\partial neuron_{i}}{\partial o_{j}} $$
+      
+      
+    
             </div>
        </div>
     </article>
