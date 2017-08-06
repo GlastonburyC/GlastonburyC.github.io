@@ -294,8 +294,15 @@ and how they can be used to model multiple biological data sources.
   The aim is to work out, how the cost function error changes with respect to the network weights, this can be decomposed 
   using the chain rule into three partial derivatives:
     
-    $$ \frac{\partial C}{\partial w} = \frac{\partial C}{\partial o} \frac{\partial o}{\partial neu} \frac{\partial neu}{\partial w} $$
-
+    $$ \frac{\partial C}{\partial w} = \frac{\partial C}{\partial o} \frac{\partial o}{\partial neuron} \frac{\partial neuron}{\partial w} $$
+Where:
+    $$ g(x) = \sum\limits_{n=1}^{n}\textbf{W}\textbf{x} $$
+    $$ neuron = \frac{1}{1 + e^{-g(x)}} $$  
+    
+What this means is, we can understand how the cost function changes with respect to each individual weight, 
+by computing how the output changes, with respect to the weighted-input activations and how the activations change with 
+respect to the weights. Clearly it's called back propogation as these gradients are being computed going back from the output 
+to the input layer.
                
             </div>
        </div>
