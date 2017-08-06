@@ -92,7 +92,8 @@ Graphically, an artifical neural network looks as follows:
 <p>
    <img src="IMG_0084.PNG" style="width:650px;height:300px;" align="middle">
     </p>
-<p>It is composed of inputs ( \(x_{n}\)), hidden layers \((y_{j}\)) and an output layer (\(z_{k}\)). Each input value is associated to a weight connected to each neuron in the hidden layer. 
+<p>It is composed of inputs ( \(x_{n}\)), hidden layers \((y_{j}\)) and an output layer (\(z_{k}\)). Each input value is associated to a weight connected to each 
+  in the hidden layer. 
  Each of the neurons in the hidden layer (\(u_{j}\)) are connected to each other neuron in \(u_{j+1}\). </p>
                  <p>
 A way of thinking about a feedforward network or artificial neural network (ANN) is as glorified composite function: $$ f(g(h(x))) $$ of 
@@ -294,10 +295,10 @@ and how they can be used to model multiple biological data sources.
   The aim is to work out, how the cost function error changes with respect to the network weights, this can be decomposed 
   using the chain rule into three partial derivatives:
     
-    $$ \frac{\partial C}{\partial w} = \frac{\partial C}{\partial o} \frac{\partial o}{\partial neuron} \frac{\partial neuron}{\partial w} $$
+    $$ \frac{\partial C}{\partial w} = \frac{\partial C}{\partial o} \frac{\partial o}{\partial a} \frac{\partial a}{\partial w} $$
 Where:
     $$ g(x) = \sum\limits_{n=1}^{n}\textbf{W}\textbf{x} $$
-    $$ neuron = \frac{1}{1 + e^{-g(x)}} $$  
+    $$ a = \frac{1}{1 + e^{-g(x)}} $$  
     
 What this means is, we can understand how the cost function changes with respect to each individual weight, 
 by computing how the output changes, with respect to the weighted-input activations and how the activations change with 
@@ -305,21 +306,25 @@ respect to the weights. Clearly it's called back propogation as these gradients 
 to the input layer.
 
     <p>
-      The last partial \(\frac{\partial neuron}{\partial w} \) only depends on \(x \) given \(g(x)\) above so it's simply:
+      The last partial \(\frac{\partial a}{\partial w} \) only depends on \(x \) given \(g(x)\) above so it's simply:
       
-      $$  \frac{\partial neuron}{\partial w} = x $$
+      $$  \frac{\partial a}{\partial w} = x $$
       
-      We have already defined \(\frac{\partial o}{\partial neuron} \) above as it is simply the derivative of the activation function :
+      We have already defined \(\frac{\partial o}{\partial a} \) above as it is simply the derivative of the activation function :
       
-      $$ \frac{\partial o}{\partial neuron} = \frac{\partial f(x)}{\partial x} = f(x) \cdot (1-f(x)) $$ 
+      $$ \frac{\partial o}{\partial a} = \frac{\partial f(x)}{\partial x} = f(x) \cdot (1-f(x)) $$ 
       
-      Finally we are left with \(\frac{\partial C}{\partial o}\) which if the neuron is in the output layer it is easily given by the derivative of the 
-      cost function defined above. This is because only a single weight connects us to a particular output. However, if we are in a hidden layer, in a deep network, 
+      Finally we are left with \(\frac{\partial C}{\partial o}\) which if the neuron activation is in the output layer it is easily given by the derivative of the 
+      cost function defined above. This is because only a single weight connects it to a particular output. However, if we are in a hidden layer, in a deep network, 
       we have to consider the cost function error to all neurons this weight can lead to (see diagram at start), so we chain rule again!:
       
-       $$ \frac{\partial C}{\partial o_{j}} = \sum\limits_{i \in I} \frac{\partial C}{\partial o_{i}} \frac{\partial o_{i}}{\partial neuron_{i}} \frac{\partial neuron_{i}}{\partial o_{j}} $$
+       $$ \frac{\partial C}{\partial o_{j}} = \sum\limits_{i \in I} \frac{\partial C}{\partial o_{i}} \frac{\partial o_{i}}{\partial a_{i}} \frac{\partial a_{i}}{\partial o_{j}} $$
+      where \(\frac{\partial a_{i}}{\partial o_{j}}\) is simply the weight \(w\).
       
-      
+     <p> So we have the following function if we are in the output layer:
+
+       $$ \frac{\partial o}{\partial a} \frac{\partial a}{\partial w} = f(x) \cdot (1-f(x)) (\hat{y} - y)  $$ 
+       
     
             </div>
        </div>
