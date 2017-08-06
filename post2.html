@@ -325,7 +325,10 @@ to the input layer.
 
        $$ \frac{\partial o}{\partial a} \frac{\partial a}{\partial w} = f(x) \cdot (1-f(x)) (\hat{y} - y)  $$ 
        
-    
+    or if we are in an arbitrary hidden layer:
+       
+       $$ \sum\limits_{i \in I} \frac{\partial C}{\partial o_{i}} \frac{\partial o_{i}}{\partial a_{i}} (f(x) \cdot (1-f(x))) w $$ 
+       
             </div>
        </div>
     </article>
