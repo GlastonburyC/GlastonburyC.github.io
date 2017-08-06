@@ -280,8 +280,22 @@ and how they can be used to model multiple biological data sources.
  <p>
         <a name="backprop"></a>
    <b> Back propagation derivation: </b>
-             
-             
+<p>
+  Back propagation is the method/algorithm used to update neural network weights in order to minimise a cost function, such as the one 
+  we defined earlier. In the forward pass stage, the network finishes by predicting a class label (classification) or value (regression) \(\hat{y}\)
+  and the cost function computes the magnitude of the error made. In back propagation, this error is then 'back-propagated' into the network
+  to update the weights of the network to try and minimise this error. Given all the functions in our network are differentiable, we can
+  compute gradients which tell us the direction of the weight update to do, in order to minimise the error.
+  <p>
+  The derivation starts by computing the derivative of our cost function and our non-linear activation function:
+    $$\frac{\partial C}{\partial y^{'}} = \hat{y} - y $$
+    $$\frac{\partial f(x)}{\partial x} = f(x) \cdot (1-f(x))$$ 
+    
+  The aim is to work out, how the cost function error changes with respect to the network weights, this can be decomposed 
+  using the chain rule into three partial derivatives:
+    
+    $$ \frac{\partial C}{\partial w} = \frac{\partial C}{\partial o} \frac{\partial o}{\partial neu} \frac{\partial neu}{\partial w} $$
+
                
             </div>
        </div>
