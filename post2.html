@@ -327,8 +327,13 @@ to the input layer.
        
     or if we are in an arbitrary hidden layer:
        
-       $$ \frac{\partial O}{\partial w_{kj}} = \sum\limits_{i \in I} \frac{\partial C}{\partial o_{i}} \frac{\partial o_{i}}{\partial a_{i}}w f(x) \cdot (1-f(x)) (\hat{y} - y)(y)
+       $$ \frac{\partial O}{\partial w_{kj}} = -  \sum\limits_{i \in I} \frac{\partial C}{\partial o_{i}} \frac{\partial o_{i}}{\partial a_{i}}w f(x) \cdot (1-f(x)) (\hat{y} - y)(y) $$
        
+      Notice the minus given we want to minimise the cost. So we have the gradient, how much of it do we want to update the weights by?
+      By introducing a scalar multiple, the learning rate, \(\eta\) we can add a given fraction of the gradient to the weights.
+       
+              $$ \frac{\partial O}{\partial w_{kj}} = - \eta\sum\limits_{i \in I} \frac{\partial C}{\partial o_{i}} \frac{\partial o_{i}}{\partial a_{i}}w f(x) \cdot (1-f(x)) (\hat{y} - y)(y) $$
+
             </div>
        </div>
     </article>
