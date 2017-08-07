@@ -289,7 +289,7 @@ and how they can be used to model multiple biological data sources.
   compute gradients which tell us the direction of the weight update to do, in order to minimise the error.
   <p>
   The derivation starts by computing the derivative of our cost function and our non-linear activation function:
-    $$\frac{\partial C}{\partial y^{'}} = \hat{y} - y $$
+    $$\frac{\partial C}{\partial y} = \hat{y} - y $$
     $$\frac{\partial f(x)}{\partial x} = f(x) \cdot (1-f(x))$$ 
     
   The aim is to work out, how the cost function error changes with respect to the network weights, this can be decomposed 
