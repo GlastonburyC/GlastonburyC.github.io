@@ -323,11 +323,11 @@ to the input layer.
       
      <p> So we have the following function if we are in the output layer:
 
-       $$ \frac{\partial o}{\partial a} \frac{\partial a}{\partial w} = f(x) \cdot (1-f(x)) (\hat{y} - y)  $$ 
+       $$ \frac{\partial o}{\partial a} \frac{\partial a}{\partial w} = f(x) \cdot (1-f(x)) (\hat{y} - y)(y)  $$ 
        
     or if we are in an arbitrary hidden layer:
        
-       $$ \sum\limits_{i \in I} \frac{\partial C}{\partial o_{i}} \frac{\partial o_{i}}{\partial a_{i}} (f(x) \cdot (1-f(x))) w $$ 
+       $$ \frac{\partial O}{\partial w_{kj}} = \sum\limits_{i \in I} \frac{\partial C}{\partial o_{i}} \frac{\partial o_{i}}{\partial a_{i}}w f(x) \cdot (1-f(x)) (\hat{y} - y)(y)
        
             </div>
        </div>
