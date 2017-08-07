@@ -334,6 +334,8 @@ to the input layer.
        
               $$ \frac{\partial O}{\partial w_{kj}} = - \eta\sum\limits_{i \in I} \frac{\partial C}{\partial o_{i}} \frac{\partial o_{i}}{\partial a_{i}}w f(x) \cdot (1-f(x)) (\hat{y} - y)(y) $$
 
+       And voilà! That's why differentiable functions are used. Many sexier ways of doing this now exist, such as use of momentum and 
+        other adaptive learning rates that basically keep a history of weight updates to inform their next decision.
             </div>
        </div>
     </article>
