@@ -269,7 +269,7 @@ of weights required is also decreasing, reducing the chance of overfitting.
 Typically, for image classification, the output layer is a fully-connected layer (Also known as a dense layer) in which the input is flattened into a \(n\)-dimensional vector and passed through
 (typically) a softmax/logistic function to obtain a class probability. If the dense layer is omitted, the last layer is a convolutional 
 layer and the output is an image (a fully convolutional neural network). 
-CNNs applied to MNIST digits routinely score above \(99%\) accuracy, well above the accuracy of a fully connected feed-forward ANN.
+CNNs applied to MNIST digits routinely score above \(99\)% accuracy, well above the accuracy of a fully connected feed-forward ANN.
               </p>
              <p>
 So hopefully I have motivated with this introductory primer, why CNNs are preferred over ANNs 
@@ -334,8 +334,8 @@ to the input layer.
        
               $$ \frac{\partial O}{\partial w_{kj}} = - \eta\sum\limits_{i \in I} \frac{\partial C}{\partial o_{i}} \frac{\partial o_{i}}{\partial a_{i}}w f(x) \cdot (1-f(x)) (\hat{y} - y)(y) $$
 
-       And voilà! That's why differentiable functions are used. Many sexier ways of doing this now exist, such as use of momentum and 
-        other adaptive learning rates that basically keep a history of weight updates to inform their next decision.
+       And voilà! That's why differentiable functions are used. Many sexier ways of doing this now exist (multiple optimisers exist, not just stocastic graident descent), such as the use of momentum and 
+        other adaptive learning algorithms (ADAM, Adagrad..) that basically keep a history of weight updates to inform the next decision.
             </div>
        </div>
     </article>
