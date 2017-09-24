@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="index.html"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('img/IMG_0041.JPG')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>From polygenic to omnigenic.</h1>
+                        <h2><i>"Why do my shins hurt?"</i></h2>
+                        <span class="meta">Posted by <a href="#">Craig Glastonbury.</a> on June 19, 2017</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<p>
+                    Genome-Wide Association Studies (GWAS) have been the bread and butter in the complex disease geneticists arsenal since the mid-2000s. The idea is beautifully simple, a common complex trait can be influenced by a number of common genetic variants each with relatively small effect sizes, all contributing additively (for the most part) to influence disease risk. GWAS in fact has been so successful (thousands of loci discovered for a whole host of traits), complex disease geneticists today are already faced with a burden of prioritising variants. Additional difficulties in prioritisation are also complicated by the nature of complex traits: 
+</p>
+<p>
+<ol>
+    
+    <li><b>The genetic architecture - GWAS variants are non-coding ‘enriched’.</b> </li>
+    <li><b>The LD-structure of the (European) human genome.</b></li>
+    <li><b>Proximity. What gene/s matters?.</b></li>
+                    </ol>
+    </p>
+                    <p>
+Many of these challenges have been, or are being overcome. The non-coding genome continues to be extensively studied through research-efforts such as GTEx, ENCODE and Roadmap, building extensive regulatory genomic datasets to relate variants to expression (eQTLs), protein levels (pQTLs), expression dynamics (Alternative splicing, Nonsense Mediated Decay) and the regulatory chromatin landscape. Fine-mapping and trans-ethnic GWAS have reduced the burden of LD and many probabilistic methods now provide analysts with ‘credible sets’ of variants to work with. Efforts mentioned for (1) have now contributed enormously to translate GWAS variants into ‘effector’ genes and transcripts and can provide evidence of whether such genes are locally or distally regulated, and how. 
+                    </p>
+                    <p>
+However, despite all of these advances, the number of GWAS variants that have been fully mapped out (SNP > gene/chromatin conformation > endophenotypic change > whole body phenotype) isn’t so impressive (the individual efforts are impressive, the overall number isn’t). If one considers the number of variants that have subsequently impacted treatment, the results are even less inspiring. It is however early in the (GWAS) story - and many modern high-throughput screening methods are coming online at an astonishing rate to aid validation, variant interpretation and to understand regulatory function. Whilst the problems listed above are relevant to previous and current GWAS discovery, more issues emerge in terms of new GWAS with ever increasing sample sizes.
+</p>
+                    <h2 class="section-heading">Extent of polygenicity</h2>
+
+                    <p>
+                        In a recent paper put forward by <a href="http://www.cell.com/cell/pdf/S0092-8674(17)30629-3.pdf">Boyle, Li & Prichard</a>, they propose that as GWAS sample sizes increase (Many consortia are now thinking in terms of 1-5M samples), the number of variants discovered per complex trait is more likely to be in the range of 100k+. This will be somewhat dependent on the genetic architecture of the trait, and how well defined it is, but very few scientists approaching the common disease, common variant hypothesis a decade ago would have predicted the extent of this polygenicity. <a href="http://www.cell.com/cell/pdf/S0092-8674(17)30629-3.pdf"><it>Boyle et al., 2017</i></a>  posit several lines of evidence for their hypothesis:
+</p>
+                <p>
+                  
+                <ol>
+<li><b>Variants discovered through GWAS seem to be generated from a uniform process (they are uniformly distributed throughout the human genome)</b></li>
+<li><b>The majority of SNPs tested in GWAS, have non-zero estimated effects on the phenotype of interest (height given as an example - 62% of SNPs show a non-zero effect)</b></li>
+<li><b>The evidence for specific pathway enrichment tends to be weak and; SNPs near broadly expressed genes explain more heritability than genes expressed in the (expected) disease-relevant tissue.</b></li>
+                    </p>
+                <p>
+ Previous studies have demonstrated (<a href="http://www.nature.com/ng/journal/v44/n3/full/ng.1108.html">Visscher</a>, <a href="http://biorxiv.org/content/early/2017/01/25/103069">Price</a> and others) that if one takes the number of GWAS variants per chromosome for height, and correlate it with chromosome length, a simple relationship is found: The longer the chromosome, the more variants are associated to height. Is this uniform distribution of height variants expected? In addition to height, <a href="http://www.cell.com/cell/pdf/S0092-8674(17)30629-3.pdf"><it>Boyle et al., 2017</i></a> reevaluated the results of a schizophrenia GWAS and along with Price et al,. Find something quite surprising; 70-100% of 1MB regions of the genome contribute at least some heritability to schizophrenia. This finding is unlikely to hold for all traits, at least for where we are currently with GWAS discovery. Autoimmune diseases for example show a burden of association around the MHC, but one could predict as GWAS sample size increases, the disease variant distribution will tend towards a uniform expectation, and this will relate to the extent of non-core variant association (more on that later). The idea is therefore as N tends to an ever larger number, the ability to find variants with minuscule odd ratios (approaching 1) will be more likely due to power gains. Hardly a revelation, but the extent, function and utility of these variants with tiny effects and the implications for GWAS and biological understanding are not widely documented or considered elsewhere. 
+                    </p>
+                    
+                    <h2 class="section-heading">The Omnigenic model. Biology is complex. Genes don’t work in silos.</h2>
+<p>
+    <a href="http://www.cell.com/cell/pdf/S0092-8674(17)30629-3.pdf"><it>Boyle et al.,</i></a> extend the polygenic model (the omnigenic model) - providing a framework to try and explain the extent of polygenicity and to frame discourse on how the field should move forward in understanding and translating GWAS discovery. The omnigenic model proposes that given the complex inter-connected nature of gene regulation, complex disease variant discovery can be broken down into ‘core’ and ‘non-core’ gene variants. <a href="http://www.cell.com/cell/pdf/S0092-8674(17)30629-3.pdf"><it>Boyle et al., 2017</i></a> (convincingly) argue that variants that affect core genes represent targets directly on the pathway to disease, whilst indirect non-core variants influence the trait subtly - simply due to the extensive interconnected nature of cellular systems. However to me, there seems to be a blurred line between when a gene becomes non-core - and this will be an important consideration moving forward.
+                    </p>
+                    
+                               <h2 class="section-heading">Core-direct and core-modifier gene variants</h2>     
+                    <p>
+                        It is useful to consider the additional breakdown of core variants into two categories, core-direct and core-modifier. Let's take LDL cholesterol. A straight-forward example of a core-direct variant for LDL cholesterol would be one that influences <i>LDLR</i> expression. Variants affecting the regulation of LDL receptor will influence the levels of LDL cholesterol. <a href="http://www.cell.com/cell/pdf/S0092-8674(17)30629-3.pdf"><it>Boyle et al., 2017</i></a> would subsequently classify this example as a core-gene / core-variant.
+                </p>
+                <p>
+In addition to core-direct genes and their variants, A hypothetical example of a core-modifier variant found in an LDL cholesterol GWAS could be a variant that influences diet, perhaps high:low fat seeking behaviour by regulating the expression of a certain taste receptor. Whilst this variant does not relate to the metabolic pathway of LDL, It would still provide biological insight if we didn't know that our diet influences our cholesterol levels. Such core-modifier variants are known to exist in GWAS, such as <i>CHRNA</i> variants for <a href="https://www.nature.com/ng/journal/v40/n5/full/ng.109.html">lung cancer</a> and <a href="https://www.ncbi.nlm.nih.gov/pubmed/18385739?dopt=Abstract">smoking behaviour</a>. These core-modifier variants teach us about disease exposure and our genetic variability in response to our environment.
+                </p>
+                <p>
+                    As GWAS sample size grows, <a href="http://www.cell.com/cell/pdf/S0092-8674(17)30629-3.pdf"><it>Boyle et al., 2017</i></a> argue it's likely that additional discovered variants (past a certain <i>N</i>) that influence trait variability could be further and further abstracted away from the core biological pathway. In our LDL example, these non-core genes/variants could hypothetically influence a number of processes that only very indirectly (and negligibly) influence LDL. 
+                    </p>
+                    
+                               <h2 class="section-heading">Non-core variants: The small world property of networks.</h2>
+                   
+                    <p>
+                   Non-biologically, non-core genes can be understood by considering any given network, such as your friends on Facebook. In your immediate friend group you exert a direct effect/influence on their behaviour through your posts. If you share an event and your friends attend because of you, you have had a core, direct impact on their behaviour. Considering social networks follow a scale-free topology, it can be demonstrated that the degrees of separation between an average facebook user and Mark Zuckerberg is small (< 5 friends). However, anything you post will have a minuscule influence over his life. So though it is possible that your indirect connections (your friends friends friend) have been influenced by your behaviour and therefore have influenced him, when someone is trying to understand what influences Mark Zuckerberg from day-to-day, the list is unlikely to credit you - and rightly too.
+</p>
+                                               <a href="#">
+                        <img class="img-responsive" src="img/Omnigenic model figure.png" alt="">
+                    </a>
+                    <span class="caption text-muted">A doodle demonstrating core and non-core gene connectivity. Whilst the core gene is part of the fundemental biochemical process, the none-core gene due to the inter-connected nature of biological processes, influences the GWAS trait peripherally/non-directly. </span>
+                
+
+                        <p>
+Going back to a biological context we can return to our hypothetical LDL GWAS. An example of an non-core variant could be one that influences a gene responsible for some aspect of cell-level homeostatic control. If a risk allele exists that results in an infinitesimally small cellular pH change, it may influence reaction kinetics, lipid solubility or lysosome formation efficiency, but it's a variant that influences a ‘core-cell’ process (with small effect and therefore neutral selection), rather than a ’core’ LDL cholesterol process. Due to the small world property of networks, thousands of seemingly LDL genetic variants will have negligible direct effects on LDL cholesterol, but perhaps many indirect effects on multiple traits and processes, including LDL. These non-core variants don’t tell you much (maybe anything?) about LDL biology specifically - The non-core variant effect is fundamentally abstract from the original phenotype. These indirect-homeostatic or non-core variants could be anything from cell cycle, MAPK signalling, mRNA stability, transcription and/or translation variability influencers. <a href="http://www.cell.com/cell/pdf/S0092-8674(17)30629-3.pdf"><it>Boyle et al., 2017</i></a> in their omnigenic model, specifically suggest genes that happen to be expressed in the same disease relevant tissue/cell type, will be connected enough to exert a small negligible effect on the trait and therefore still mapped as a GWAS variant. Perhaps it is to be expected then, that <i>trans</i>-eQTLs will be over-represented in GWAS?
+                       </p>
+                        
+               <h2 class="section-heading">Future directions: More core genes and insightful biology, or diminishing returns?</h2>
+                    <p>
+                       Given the network topology of cells, most genes affect most traits either directly or indirectly. It is therefore possible to assume that as GWAS’s get larger, the proportion of core:non-core variant discovery will become skewed towards non-core genes (excluding rare variants). <a href="http://www.cell.com/cell/pdf/S0092-8674(17)30629-3.pdf"><it>Boyle et al., 2017</i></a> propose 100:1. At the extremes, one can imagine non-core variants having effects on processes so abstract from the original phenotype, they will start to provide little to no biological insight for the GWAS trait of interest. This is likely to be proportional to how tightly defined the phenotype is too. It begs the question therefore, when do the returns of GWAS diminish? Is there a threshold for core-gene discovery based on effect size? Whilst it is possible to have very small effect size variants that influence core genes, it is also very probable ‘large’ effect variants found in both early GWAS and RVAS point to the core genes of a given complex trait (if they exist at all). Given the interconnected nature of biology, It’s interesting to think how the discovery of excessive non-core variants will affect genetic correlation analysis. Will non-core genes show up in multiple seemingly unrelated GWAS? Will the next question be: ‘non-core’, pleiotropic, or both?
+                       </p>
+                       *<i><font color='grey'>top image 'The crowded cell' - Harvard University XVIVO - Scientific animation</i></font>
+                </div>
+            </div>
+       </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="https://www.twitter.com/C_Glastonbury">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/craig.glastonbury">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.github.com/GlastonburyC">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">&copy; 2017</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
