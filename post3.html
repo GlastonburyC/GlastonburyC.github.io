@@ -91,7 +91,7 @@ My first kaggle competition entry was the Nature conservancy fisheries competiti
                     <p>
 I teamed up with <a href="wrosinski.github.io">Wojtek Rosinski</a>. As is the nature of kaggle competitions, sharing, making like-minded friends and learning is key to enjoy (and doing well!) in any of the competitions. By the time we had teamed up, I was in the top 10, he was in the top 20 ( out of ~ 2300 competitors), and we thought our methods would complement each other. We set out the problem in two stages. First, object localisation. The images were mostly boat, with the fish species making up a very small and variable fraction of the total scene from image to image. The first labour intensive task was to obtain bounding boxes for each fish in each image. So I used a python script that allowed me to annotate images and output a JSON with x,y,w,h coordinates for each box:                    </p>
                     <p>
-<img class="img-responsive" src="json.png" alt=""height="250" width="250">
+<img class="img-responsive" src="json.png" alt="",height="450" width="450">
                     
                    </p>
                     <p>
@@ -120,7 +120,7 @@ Transfer learning, instead of initialising to random weights is the practice of 
                 <p>
 So why bother localising? Couldn’t we have just classified the whole image? Sadly, the images had a number of high variance properties (night/day, colour channel distortions, different boats, variable image size) that would bias the classification. Many of these nuisances could be handled, for example normalising images (1/255) and using the following extensive data augmentation:                </p>
                 
-<img class="img-responsive" src="data_generator.png" alt="">
+<img class="img-responsive" src="data_generator.png" alt="",height="450" width="450">
 
                     <p>
 However, the main issue with classifying whole images for this task was that the boat the image was taken on was not uniformly distributed across the fish species. Therefore the boat in the image, would be learned as a predictive feature for classifying a species of fish. Clearly, given new test data, a CNN trained like this would fail.
