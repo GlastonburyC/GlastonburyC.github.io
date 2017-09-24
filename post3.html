@@ -66,7 +66,7 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
                         <h1>Detect, locate classify. Deep learning to combat overfishing.</h1>
-                        <h2><i>"Kaggle Competition, top 2% finish."</i></h2>
+                        <h2><i>Kaggle Competition - Our top 2% finish.</i></h2>
                         <span class="meta">Posted by <a href="#">Craig Glastonbury.</a> on September 24th, 2017</span>
                     </div>
                 </div>
@@ -85,11 +85,11 @@ Kaggle, for those uninitiated, is a machine learning competition hosting website
 </p>
 <p>
     
-My first kaggle competition entry was the Nature conservancy fisheries competition. In this competition, the aim was, from thousands of images of fish obtained from low resolution webcams on trauler boats, predict the species of fish present. This problem interested me unlike many kaggle competitions that had come before it, because I could directly see the scientific utility of monitoring fishing quotas and reducing illegal/accidental overfishing. Additionally, I had become more and more interested in image classification and extracting useful information from images, a data modality that is fairly under-utilised outside of vision research. Coupled with the incredible performance of convolutional neural networks (CNN) for both classification (ImageNet models: Inception, Resnet, DenseNet, etc) and localisation/segmentation (Overfeat, YOLO, R-CNN, etc), I thought this would be a pretty good method to tackle the problem.
+My first kaggle competition entry was the Nature conservancy fisheries competition - Something I competed in as a distraction to writing my thesis... In this competition, the aim was, from thousands of images of fish obtained from low resolution webcams on trauler boats, predict the species of fish present. This problem interested me unlike many kaggle competitions that had come before it, because I could directly see the scientific utility of monitoring fishing quotas and reducing illegal/accidental overfishing. Additionally, I had become more and more interested in image classification and extracting useful information from images, a data modality that is fairly under-utilised outside of vision research. Coupled with the incredible performance of convolutional neural networks (CNN) for both classification (ImageNet models: Inception, Resnet, DenseNet, etc) and localisation/segmentation (Overfeat, YOLO, R-CNN, etc), I thought this would be a pretty good method to tackle the problem.
 
     </p>
                     <p>
-I teamed up with Wojtek, as is the nature of kaggle competitions, sharing, making like-minded friends and learning is key to enjoy any of the competitions. By the time we had teamed up, I was in the top 10, he was in the top 20 ( out of ~ 2300 competitors), and we thought our methods would complement each other. We set out the problem in two stages. First, object localisation. The images were mostly boat, with the fish species making up a very small and variable fraction of the total scene from image to image. The first labour intensive task was to obtain bounding boxes for each fish in each image. So I used a python script that allowed me to annotate images and output a JSON with x,y,w,h coordinates for each box:                    </p>
+I teamed up with <a href="wrosinski.github.io">Wojtek Rosinski</a>. As is the nature of kaggle competitions, sharing, making like-minded friends and learning is key to enjoy (and doing well!) in any of the competitions. By the time we had teamed up, I was in the top 10, he was in the top 20 ( out of ~ 2300 competitors), and we thought our methods would complement each other. We set out the problem in two stages. First, object localisation. The images were mostly boat, with the fish species making up a very small and variable fraction of the total scene from image to image. The first labour intensive task was to obtain bounding boxes for each fish in each image. So I used a python script that allowed me to annotate images and output a JSON with x,y,w,h coordinates for each box:                    </p>
                     <p>
 <img class="img-responsive" src="json.png" alt="">
                     
@@ -141,7 +141,7 @@ We repeated this process for several CNN architectures, including InceptionV4, w
                        </p>
                         
                     <p>
-Our final trick was to deal with the non-balanced class distribution. Some fish (ALB) had orders of magnitude more examples than others (LAG - moonfish). A simple technique one can use is over sampling, in which you simply replicate the images of the underrepresented classes, making sure of how you separate them between training/validation splits). This surprisingly simple technique is very effective, and did help with our problem here, but has been shown to work more generally <b> CITE! </b>                       </p>
+Our final trick was to deal with the non-balanced class distribution. Some fish (ALB) had orders of magnitude more examples than others (LAG - moonfish). A simple technique one can use is over sampling, in which you simply replicate the images of the underrepresented classes, making sure of how you separate them between training/validation splits). This surprisingly simple technique is very effective, and did help with our problem here, but has been shown to work more generally <a href="https://www.kth.se/social/files/588617ebf2765401cfcc478c/PHensmanDMasko_dkand15.pdf">Hensman & Masko</a>.                       </p>
                     </p>
                 <p>
 Other ideas we explored included using VGG16 as a fully convolutional network and provide the bounding box annotations as auxiliary input. By doing so, VGG16 would both locate the fish, and classify the species. This however did not outperform InceptionV3 although providing the bounding boxes did improve the classification accuracy. This can be thought of almost giving the network a ’clue’ of where it should look in the image. It can be visualised by overlapping a saliency map of the activations onto the original image as done in <this> notebook:
