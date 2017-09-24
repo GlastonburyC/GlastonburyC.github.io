@@ -99,48 +99,63 @@ This way we could feed in the bounding box coordinates and the each correspondin
 </p>
                   
                 <p>
-                    <iframe width="564" height="564" src="https://www.youtube.com/embed/QeWl0h3kQ24" frameborder="0" allowfullscreen></iframe>
+                    <iframe width="500" height="400" src="https://www.youtube.com/embed/QeWl0h3kQ24" frameborder="0" allowfullscreen></iframe>
                    </p>
                 <p>
- Previous studies have demonstrated (<a href="http://www.nature.com/ng/journal/v44/n3/full/ng.1108.html">Visscher</a>, <a href="http://biorxiv.org/content/early/2017/01/25/103069">Price</a> and others) that if one takes the number of GWAS variants per chromosome for height, and correlate it with chromosome length, a simple relationship is found: The longer the chromosome, the more variants are associated to height. Is this uniform distribution of height variants expected? In addition to height, <a href="http://www.cell.com/cell/pdf/S0092-8674(17)30629-3.pdf"><it>Boyle et al., 2017</i></a> reevaluated the results of a schizophrenia GWAS and along with Price et al,. Find something quite surprising; 70-100% of 1MB regions of the genome contribute at least some heritability to schizophrenia. This finding is unlikely to hold for all traits, at least for where we are currently with GWAS discovery. Autoimmune diseases for example show a burden of association around the MHC, but one could predict as GWAS sample size increases, the disease variant distribution will tend towards a uniform expectation, and this will relate to the extent of non-core variant association (more on that later). The idea is therefore as N tends to an ever larger number, the ability to find variants with minuscule odd ratios (approaching 1) will be more likely due to power gains. Hardly a revelation, but the extent, function and utility of these variants with tiny effects and the implications for GWAS and biological understanding are not widely documented or considered elsewhere. 
+Even though it was designed for face detection, with a few modifications, and using resnet pretrained weights, we could obtain pretty accurate bounding boxes of the fish on the test data. 
                     </p>
                     
-                    <h2 class="section-heading">The Omnigenic model. Biology is complex. Genes don’t work in silos.</h2>
-<p>
-    <a href="http://www.cell.com/cell/pdf/S0092-8674(17)30629-3.pdf"><it>Boyle et al.,</i></a> extend the polygenic model (the omnigenic model) - providing a framework to try and explain the extent of polygenicity and to frame discourse on how the field should move forward in understanding and translating GWAS discovery. The omnigenic model proposes that given the complex inter-connected nature of gene regulation, complex disease variant discovery can be broken down into ‘core’ and ‘non-core’ gene variants. <a href="http://www.cell.com/cell/pdf/S0092-8674(17)30629-3.pdf"><it>Boyle et al., 2017</i></a> (convincingly) argue that variants that affect core genes represent targets directly on the pathway to disease, whilst indirect non-core variants influence the trait subtly - simply due to the extensive interconnected nature of cellular systems. However to me, there seems to be a blurred line between when a gene becomes non-core - and this will be an important consideration moving forward.
-                    </p>
+<img class="img-responsive" src="bbox_pred.png" alt="">
                     
-                               <h2 class="section-heading">Core-direct and core-modifier gene variants</h2>     
+<img class="img-responsive" src="valid_curve.png" alt="">
+
                     <p>
-                        It is useful to consider the additional breakdown of core variants into two categories, core-direct and core-modifier. Let's take LDL cholesterol. A straight-forward example of a core-direct variant for LDL cholesterol would be one that influences <i>LDLR</i> expression. Variants affecting the regulation of LDL receptor will influence the levels of LDL cholesterol. <a href="http://www.cell.com/cell/pdf/S0092-8674(17)30629-3.pdf"><it>Boyle et al., 2017</i></a> would subsequently classify this example as a core-gene / core-variant.
-                </p>
-                <p>
-In addition to core-direct genes and their variants, A hypothetical example of a core-modifier variant found in an LDL cholesterol GWAS could be a variant that influences diet, perhaps high:low fat seeking behaviour by regulating the expression of a certain taste receptor. Whilst this variant does not relate to the metabolic pathway of LDL, It would still provide biological insight if we didn't know that our diet influences our cholesterol levels. Such core-modifier variants are known to exist in GWAS, such as <i>CHRNA</i> variants for <a href="https://www.nature.com/ng/journal/v40/n5/full/ng.109.html">lung cancer</a> and <a href="https://www.ncbi.nlm.nih.gov/pubmed/18385739?dopt=Abstract">smoking behaviour</a>. These core-modifier variants teach us about disease exposure and our genetic variability in response to our environment.
-                </p>
-                <p>
-                    As GWAS sample size grows, <a href="http://www.cell.com/cell/pdf/S0092-8674(17)30629-3.pdf"><it>Boyle et al., 2017</i></a> argue it's likely that additional discovered variants (past a certain <i>N</i>) that influence trait variability could be further and further abstracted away from the core biological pathway. In our LDL example, these non-core genes/variants could hypothetically influence a number of processes that only very indirectly (and negligibly) influence LDL. 
+Wojtek, simultaneously trained YOLO, a similar localisation network. We found YOLO outperformed Overfeat for this task and we went forward using the YOLO crops. The next stage involved cropping the images with the predicted fish locations, and feeding them into a classifier. The classifier we chose, and had most success with, was an InceptionV3 CNN architecture, a 48-layer deep CNN with ImageNet pretrained weights.
                     </p>
                     
-                               <h2 class="section-heading">Non-core variants: The small world property of networks.</h2>
+<img class="img-responsive" src="inception_model.png" alt="">
+                    <p>
+Transfer learning, instead of initialising to random weights is the practice of using pre-learned weights from a previous classification task for a totally different task. Transfer learning almost always outperforms learning from scratch for smaller datasets, particularly if any of the imagenet class types are present in your data (fish most certainly are!). So this step was essential. Additionally, we used external ImageNet fish images to increase our training set size, this helped improve localisation and potentially, generalisation.
+                </p>
+                <p>
+So why bother localising? Couldn’t we have just classified the whole image? Sadly, the images had a number of high variance properties (night/day, colour channel distortions, different boats, variable image size) that would bias the classification. Many of these nuisances could be handled, for example normalising images (1/255) and using the following extensive data augmentation:                </p>
+                
+<img class="img-responsive" src="data_generator.png" alt="">
+
+                    <p>
+However, the main issue with classifying whole images for this task was that the boat the image was taken on was not uniformly distributed across the fish species. Therefore the boat in the image, would be learned as a predictive feature for classifying a species of fish. Clearly, given new test data, a CNN trained like this would fail.
+
+We used several InceptionV3 modified architectures and different ways of training them. At first, we simply replaced the last Dense layer (representing 1000 ImageNet categories) to a new dense layer representing our 7 fish species and 1 no fish category:
+                    </p>
+                    
+<img class="img-responsive" src="inception_keras.png" alt="">
                    
                     <p>
-                   Non-biologically, non-core genes can be understood by considering any given network, such as your friends on Facebook. In your immediate friend group you exert a direct effect/influence on their behaviour through your posts. If you share an event and your friends attend because of you, you have had a core, direct impact on their behaviour. Considering social networks follow a scale-free topology, it can be demonstrated that the degrees of separation between an average facebook user and Mark Zuckerberg is small (< 5 friends). However, anything you post will have a minuscule influence over his life. So though it is possible that your indirect connections (your friends friends friend) have been influenced by your behaviour and therefore have influenced him, when someone is trying to understand what influences Mark Zuckerberg from day-to-day, the list is unlikely to credit you - and rightly too.
+Wojtek also tried adding additional dense layers and non-linear activation functions coupled with batch normalisation, which further improved our classification accuracy. I on the other hand, tried freezing some of the early layers in the network, whilst fine-tuning the rest. This also improved accuracy, but training time was significantly increased.
+
 </p>
-                                               <a href="#">
-                        <img class="img-responsive" src="img/Omnigenic model figure.png" alt="">
-                    </a>
-                    <span class="caption text-muted">A doodle demonstrating core and non-core gene connectivity. Whilst the core gene is part of the fundemental biochemical process, the none-core gene due to the inter-connected nature of biological processes, influences the GWAS trait peripherally/non-directly. </span>
-                
 
                         <p>
-Going back to a biological context we can return to our hypothetical LDL GWAS. An example of an non-core variant could be one that influences a gene responsible for some aspect of cell-level homeostatic control. If a risk allele exists that results in an infinitesimally small cellular pH change, it may influence reaction kinetics, lipid solubility or lysosome formation efficiency, but it's a variant that influences a ‘core-cell’ process (with small effect and therefore neutral selection), rather than a ’core’ LDL cholesterol process. Due to the small world property of networks, thousands of seemingly LDL genetic variants will have negligible direct effects on LDL cholesterol, but perhaps many indirect effects on multiple traits and processes, including LDL. These non-core variants don’t tell you much (maybe anything?) about LDL biology specifically - The non-core variant effect is fundamentally abstract from the original phenotype. These indirect-homeostatic or non-core variants could be anything from cell cycle, MAPK signalling, mRNA stability, transcription and/or translation variability influencers. <a href="http://www.cell.com/cell/pdf/S0092-8674(17)30629-3.pdf"><it>Boyle et al., 2017</i></a> in their omnigenic model, specifically suggest genes that happen to be expressed in the same disease relevant tissue/cell type, will be connected enough to exert a small negligible effect on the trait and therefore still mapped as a GWAS variant. Perhaps it is to be expected then, that <i>trans</i>-eQTLs will be over-represented in GWAS?
+We repeated this process for several CNN architectures, including InceptionV4, which was published around the time we were competing, Resnet with 150 layers and VGG16/19. InceptionV3 seemed to outperform all pretrained models we tested. At the time, we were trying to work out, via confusion matrices, which category we were failing on. This ended up being BET (Bigeye tuna) a fish very similar to another class (ALB - Albacore). I also realised that when ever we failed to produce a crop using the localisation CNN, it would be classified as containing no fish! To overcome this, I suggested we ran multiple bags of the localisation network. With different seed initialisations, we would be recovering slightly different bounding boxes per run. Using this technique, we were able to recover bounding boxes for almost all test image fish and this had a large improvement on both our local validation and leaderboard score.
+
                        </p>
                         
-               <h2 class="section-heading">Future directions: More core genes and insightful biology, or diminishing returns?</h2>
                     <p>
-                       Given the network topology of cells, most genes affect most traits either directly or indirectly. It is therefore possible to assume that as GWAS’s get larger, the proportion of core:non-core variant discovery will become skewed towards non-core genes (excluding rare variants). <a href="http://www.cell.com/cell/pdf/S0092-8674(17)30629-3.pdf"><it>Boyle et al., 2017</i></a> propose 100:1. At the extremes, one can imagine non-core variants having effects on processes so abstract from the original phenotype, they will start to provide little to no biological insight for the GWAS trait of interest. This is likely to be proportional to how tightly defined the phenotype is too. It begs the question therefore, when do the returns of GWAS diminish? Is there a threshold for core-gene discovery based on effect size? Whilst it is possible to have very small effect size variants that influence core genes, it is also very probable ‘large’ effect variants found in both early GWAS and RVAS point to the core genes of a given complex trait (if they exist at all). Given the interconnected nature of biology, It’s interesting to think how the discovery of excessive non-core variants will affect genetic correlation analysis. Will non-core genes show up in multiple seemingly unrelated GWAS? Will the next question be: ‘non-core’, pleiotropic, or both?
-                       </p>
-                       *<i><font color='grey'>top image 'The crowded cell' - Harvard University XVIVO - Scientific animation</i></font>
+Our final trick was to deal with the non-balanced class distribution. Some fish (ALB) had orders of magnitude more examples than others (LAG - moonfish). A simple technique one can use is over sampling, in which you simply replicate the images of the underrepresented classes, making sure of how you separate them between training/validation splits). This surprisingly simple technique is very effective, and did help with our problem here, but has been shown to work more generally <b> CITE! </b>                       </p>
+                    </p>
+                <p>
+Other ideas we explored included using VGG16 as a fully convolutional network and provide the bounding box annotations as auxiliary input. By doing so, VGG16 would both locate the fish, and classify the species. This however did not outperform InceptionV3 although providing the bounding boxes did improve the classification accuracy. This can be thought of almost giving the network a ’clue’ of where it should look in the image. It can be visualised by overlapping a saliency map of the activations onto the original image as done in <this> notebook:
+                    </p>
+<img class="img-responsive" src="saliency.png" alt="">
+<p>
+    Our final submission was an ensemble of several InceptionV3 runs and a resnet run. Whilst there was a large leaderboard shake up due to the boat bias and the general quality of the data, we managed to come 30th/2300 - baggin us a silver medal! 
+                </p>
+                <p>
+In the next blog, Wojtek will guest post and he will describe another location and classification challenge we participated in, namely the Intel cervical cancer challenge also hosted by Kaggle!
+
+
+                
+                    *<i><font color='grey'>top cartoon fish image shamelessly taken from the kaggle blog first place solution.</i></font>
                 </div>
             </div>
        </div>
