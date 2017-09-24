@@ -102,13 +102,15 @@ This way we could feed in the bounding box coordinates and the each correspondin
                     <iframe width="500" height="400" src="https://www.youtube.com/embed/QeWl0h3kQ24" frameborder="0" allowfullscreen></iframe>
                    </p>
                 <p>
-Even though it was designed for face detection, with a few modifications, and using resnet pretrained weights, we could obtain pretty accurate bounding boxes of the fish on the test data. 
+Even though it was designed for face detection, with a few modifications, and using resnet pretrained weights, we could obtain pretty accurate bounding boxes of the fish on the test data: 
                     </p>
+                 <p>
                     
 <img class="img-responsive" src="bbox_pred.png" alt="">
-                    
-<img class="img-responsive" src="valid_curve.png" alt="">
-
+                    </p>                   
+<p>
+                    <img class="img-responsive" src="valid_curve.png" alt="">
+                    </p>
                     <p>
 Wojtek, simultaneously trained YOLO, a similar localisation network. We found YOLO outperformed Overfeat for this task and we went forward using the YOLO crops. The next stage involved cropping the images with the predicted fish locations, and feeding them into a classifier. The classifier we chose, and had most success with, was an InceptionV3 CNN architecture, a 48-layer deep CNN with ImageNet pretrained weights.
                     </p>
