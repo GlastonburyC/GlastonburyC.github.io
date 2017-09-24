@@ -80,22 +80,20 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 <p>
-                    Genome-Wide Association Studies (GWAS) have been the bread and butter in the complex disease geneticists arsenal since the mid-2000s. The idea is beautifully simple, a common complex trait can be influenced by a number of common genetic variants each with relatively small effect sizes, all contributing additively (for the most part) to influence disease risk. GWAS in fact has been so successful (thousands of loci discovered for a whole host of traits), complex disease geneticists today are already faced with a burden of prioritising variants. Additional difficulties in prioritisation are also complicated by the nature of complex traits: 
+Kaggle, for those uninitiated, is a machine learning competition hosting website, in which companies of all sorts provide a real-world dataset, usually in the form of a training and test set, with the aim to crowd source a solution to a prediction/classification problem. These problems can be anything, natural language processing (detecting duplicate questions), image classification (ImageNet), segmentation (Retina nerve segmentation) or regression (predicting a real-valued output as as opposed to a test label or probability).
+
 </p>
 <p>
-<ol>
     
-    <li><b>The genetic architecture - GWAS variants are non-coding ‘enriched’.</b> </li>
-    <li><b>The LD-structure of the (European) human genome.</b></li>
-    <li><b>Proximity. What gene/s matters?.</b></li>
-                    </ol>
+My first kaggle competition entry was the Nature conservancy fisheries competition. In this competition, the aim was, from thousands of images of fish obtained from low resolution webcams on trauler boats, predict the species of fish present. This problem interested me unlike many kaggle competitions that had come before it, because I could directly see the scientific utility of monitoring fishing quotas and reducing illegal/accidental overfishing. Additionally, I had become more and more interested in image classification and extracting useful information from images, a data modality that is fairly under-utilised outside of vision research. Coupled with the incredible performance of convolutional neural networks (CNN) for both classification (ImageNet models: Inception, Resnet, DenseNet, etc) and localisation/segmentation (Overfeat, YOLO, R-CNN, etc), I thought this would be a pretty good method to tackle the problem.
+
     </p>
                     <p>
-Many of these challenges have been, or are being overcome. The non-coding genome continues to be extensively studied through research-efforts such as GTEx, ENCODE and Roadmap, building extensive regulatory genomic datasets to relate variants to expression (eQTLs), protein levels (pQTLs), expression dynamics (Alternative splicing, Nonsense Mediated Decay) and the regulatory chromatin landscape. Fine-mapping and trans-ethnic GWAS have reduced the burden of LD and many probabilistic methods now provide analysts with ‘credible sets’ of variants to work with. Efforts mentioned for (1) have now contributed enormously to translate GWAS variants into ‘effector’ genes and transcripts and can provide evidence of whether such genes are locally or distally regulated, and how. 
-                    </p>
+I teamed up with Wojtek, as is the nature of kaggle competitions, sharing, making like-minded friends and learning is key to enjoy any of the competitions. By the time we had teamed up, I was in the top 10, he was in the top 20 ( out of ~ 2300 competitors), and we thought our methods would complement each other. We set out the problem in two stages. First, object localisation. The images were mostly boat, with the fish species making up a very small and variable fraction of the total scene from image to image. The first labour intensive task was to obtain bounding boxes for each fish in each image. So I used a python script that allowed me to annotate images and output a JSON with x,y,w,h coordinates for each box:                    </p>
                     <p>
-However, despite all of these advances, the number of GWAS variants that have been fully mapped out (SNP > gene/chromatin conformation > endophenotypic change > whole body phenotype) isn’t so impressive (the individual efforts are impressive, the overall number isn’t). If one considers the number of variants that have subsequently impacted treatment, the results are even less inspiring. It is however early in the (GWAS) story - and many modern high-throughput screening methods are coming online at an astonishing rate to aid validation, variant interpretation and to understand regulatory function. Whilst the problems listed above are relevant to previous and current GWAS discovery, more issues emerge in terms of new GWAS with ever increasing sample sizes.
-</p>
+``` test ```
+                    
+                   </p>
                     <h2 class="section-heading">Extent of polygenicity</h2>
 
                     <p>
